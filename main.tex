@@ -1,0 +1,226 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{float}
+
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+\lstset{
+    language=Python,
+    basicstyle=\footnotesize\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!40!black},
+    stringstyle=\color{red},
+    showspaces=false,
+    showstringspaces=false,
+    numbers=left,
+    numberstyle=\tiny,
+    breaklines=true
+}
+
+\title{
+    \textbf{Лабораторная работа №6} \\
+    \large{Программа "Солнечная система"} \\
+    \textbf{Групповой отчёт}
+}
+
+\author{
+    \textbf{Лидер:} Руш Егор \\
+    \textbf{Кодировщик:} Руш Егор \\
+    \textbf{Тестировщик:} Руш Егор
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Введение}
+
+Данная программа представляет собой информационную систему для визуализации Солнечной системы. Программа разработана на языке Python с использованием библиотеки Tkinter.
+
+\subsection{Цель работы}
+Разработать кросплатформенное приложение для визуализации Солнечной системы с возможностью получения информации о планетах.
+
+\subsection{Задачи}
+\begin{enumerate}
+    \item Создать графический интерфейс с использованием Tkinter
+    \item Реализовать моделирование движения планет по орбитам
+    \item Реализовать отображение информации о планетах
+    \item Добавить регулировку скорости движения
+    \item Обеспечить соответствие PEP8
+\end{enumerate}
+
+\section{Архитектура программы}
+
+\subsection{Диаграмма классов}
+
+Программа состоит из следующих основных классов:
+
+\begin{itemize}
+    \item \textbf{Планета} - класс, представляющий планету
+    \item \textbf{СолнечнаяСистема} - класс, управляющий планетами
+    \item \textbf{СолнечнаяСистемаGUI} - класс графического интерфейса
+\end{itemize}
+
+\subsection{Структура проекта}
+
+\begin{verbatim}
+solar-system/
+├── main.py          # Главный файл
+├── planets.py       # Классы планет
+├── gui.py           # Графический интерфейс
+├── data.py          # Данные о планетах
+├── utils.py         # Вспомогательные функции
+└── README.md        # Документация
+\end{verbatim}
+
+\section{Описание классов}
+
+\subsection{Класс Планета}
+
+Класс представляет планету в Солнечной системе.
+
+\textbf{Атрибуты:}
+\begin{itemize}
+    \item имя - название планеты
+    \item радиус\_орбиты - расстояние от Солнца
+    \item физический\_радиус - размер планеты
+    \item цвет - цвет планеты
+    \item угол - угол на орбите
+    \item период - период обращения
+    \item скорость - угловая скорость
+\end{itemize}
+
+\textbf{Методы:}
+\begin{itemize}
+    \item обновить\_позицию() - обновляет положение
+    \item получить\_координаты() - возвращает координаты
+    \item установить\_скорость() - устанавливает скорость
+\end{itemize}
+
+\subsection{Класс СолнечнаяСистема}
+
+Класс управляет всеми планетами.
+
+\textbf{Атрибуты:}
+\begin{itemize}
+    \item планеты - список планет
+    \item скорость - множитель скорости
+\end{itemize}
+
+\textbf{Методы:}
+\begin{itemize}
+    \item обновить() - обновляет все планеты
+    \item установить\_скорость() - устанавливает скорость
+    \item найти\_планету\_по\_координатам() - поиск планеты
+\end{itemize}
+
+\subsection{Класс СолнечнаяСистемаGUI}
+
+Класс графического интерфейса.
+
+\textbf{Атрибуты:}
+\begin{itemize}
+    \item root - корневое окно
+    \item canvas - холст для рисования
+    \item информация\_текст - текстовое поле с информацией
+    \item ползунок\_скорости - ползунок регулировки
+\end{itemize}
+
+\section{Интерфейс пользователя}
+
+\subsection{Главное окно}
+
+Главное окно программы разделено на три области:
+\begin{enumerate}
+    \item Центральная область - холст с Солнечной системой
+    \item Правая верхняя область - информация о планете
+    \item Правая нижняя область - управление скоростью
+\end{enumerate}
+
+\subsection{Управление}
+
+\begin{itemize}
+    \item Клик по планете - отображение информации
+    \item Клик по Солнцу - информация о Солнце
+    \item Ползунок скорости - изменение скорости
+    \item Кнопка "Сбросить скорость" - возврат к 1.0
+\end{itemize}
+
+\section{Тестирование}
+
+\subsection{План тестирования}
+
+\begin{enumerate}
+    \item Проверка запуска программы
+    \item Проверка отображения всех планет
+    \item Проверка движения планет
+    \item Проверка отображения информации
+    \item Проверка регулировки скорости
+\end{enumerate}
+
+\subsection{Результаты тестирования}
+
+Все тесты успешно пройдены. Программа работает стабильно.
+
+\subsection{Ошибки и их решение}
+
+\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Ошибка} & \textbf{Причина} & \textbf{Решение} \\
+\hline
+ModuleNotFoundError & Отсутствует модуль tkinter & Установить Python с tkinter \\
+\hline
+Не отображаются планеты & Неправильные координаты & Проверить центр системы \\
+\hline
+Не работает ползунок & Неверная привязка события & Проверить command \\
+\hline
+\end{tabular}
+
+\section{Заключение}
+
+В ходе работы была разработана программа для визуализации Солнечной системы с возможностью получения информации о планетах. Программа соответствует всем требованиям.
+
+\subsection{Выводы}
+\begin{itemize}
+    \item Программа успешно визуализирует Солнечную систему
+    \item Реализовано движение планет с регулируемой скоростью
+    \item При нажатии на планету отображается полная информация
+    \item Код соответствует стандарту PEP8
+    \item Интерфейс интуитивно понятен пользователю
+\end{itemize}
+
+\subsection{Возможные улучшения}
+\begin{itemize}
+    \item Добавить возможность масштабирования
+    \item Добавить спутники планет
+    \item Добавить анимацию вращения планет
+    \item Добавить возможность добавления новых планет
+\end{itemize}
+
+\section{Список литературы}
+
+\begin{enumerate}
+    \item Документация Python: \url{https://docs.python.org/}
+    \item Документация Tkinter: \url{https://docs.python.org/3/library/tkinter.html}
+    \item Данные о планетах: \url{https://nssdc.gsfc.nasa.gov/planetary/}
+    \item PEP 8 -- Style Guide: \url{https://www.python.org/dev/peps/pep-0008/}
+\end{enumerate}
+
+\section{Приложение}
+
+\subsection{Код программы}
+
+Весь код программы представлен в файлах проекта.
+
+\end{document}

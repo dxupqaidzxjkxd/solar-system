@@ -1,0 +1,9 @@
+solar-system/
+├── main.py                 # Главный файл программы
+├── planets.py              # Классы планет
+├── gui.py                  # Интерфейс Tkinter
+├── data.py                 # Данные о планетах
+├── utils.py                # Вспомогательные функции
+├── requirements.txt        # Зависимости
+├── README.md               # Документация
+└── .gitignore              # Git игнорируемые файлы
