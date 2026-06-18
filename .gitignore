@@ -1,11 +1,17 @@
+# Настройки .gitignore для проекта Солнечная система
+__pycache__/
 *.pyc
 *.pyo
-__pycache__/
+*.pyd
+.Python
+env/
+venv/
+ENV/
+.idea/
+.vscode/
+*.swp
+*.swo
 .DS_Store
 *.log
 *.tmp
 *.bak
-.vscode/
-.idea/
-*.swp
-~$*
